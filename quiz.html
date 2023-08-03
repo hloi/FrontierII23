@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="quiz.css">
+
+</head>
+<body>
+    <!-- <div id="google_translate_element"></div> 
+      
+    <script type="text/javascript"> 
+        function googleTranslateElementInit() { 
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'}, 
+                'google_translate_element'
+            ); 
+        } 
+    </script> 
+      
+    <script type="text/javascript" src=
+"https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>  -->
+
+    <div class="quiz-container" id="quiz">
+
+    
+<div translate="no" class="quiz-header">
+    <h2 id="title">Question Text</h2>
+</div>
+
+<div translate="yes" class="quiz-header">
+<ul>
+    <li class="alternative" style="text-align:center">
+        <input type="radio" name="choice" class="answer">
+        <label for="a" id="a_test">Answer</label>
+    </li>
+    <li class="alternative" style="text-align:center">
+        <input type="radio" name="choice" class="answer">
+        <label for="b" id="b_test">Answer</label>
+    </li>
+    <li class="alternative" style="text-align:center">
+        <input type="radio" name="choice" class="answer">
+        <label for="c" id="c_test">Answer</label>
+    </li>
+    <li class="alternative" style="text-align:center">
+        <input type="radio" name="choice" class="answer">
+        <label for="d" id="d_test">Answer</label>
+    </li>
+</ul>
+
+<div id="answer"></div>
+</div>
+
+<button id="button1" onclick="showQuestion()">Next</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

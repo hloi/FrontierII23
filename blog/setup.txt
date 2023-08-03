@@ -1,0 +1,46 @@
+Node.js can be used with WebSockets. There are various libraries available in Node.js that provide WebSocket server and client functionality.
+
+One popular library for WebSocket communication in Node.js is ws. Here's an example of how you can use the ws library to create a WebSocket server:
+
+Install the ws package by running the following command in your project directory:
+
+Copy code
+npm install ws
+Create a file named server.js and add the following code:
+
+javascript
+Copy code
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 12345 });
+
+wss.on('connection', ws => {
+  console.log('Client connected');
+
+  ws.on('message', message => {
+    console.log('Received data:', message);
+
+    // Send a response back to the client
+    const response = 'Message received successfully!';
+    ws.send(response);
+  });
+
+  ws.on('close', () => {
+    console.log('Client disconnected');
+  });
+});
+
+console.log('WebSocket server is listening...');
+This code sets up a WebSocket server using the ws library. The server listens on port 12345. When a client establishes a WebSocket connection (connection event), the server logs the connection. When a message is received from a client (message event), the server logs the received data and sends a response back to the client. When a client disconnects (close event), the server logs the disconnection.
+
+Run the server by executing the following command in the terminal:
+
+Copy code
+node server.js
+The server will start running and will be ready to accept WebSocket connections on port 12345.
+
+You can now connect to the WebSocket server using a WebSocket client or interact programmatically with the server using client-side JavaScript code. Remember to update the client-side code accordingly, setting the WebSocket URL to ws://localhost:12345 or the appropriate IP address and port of your WebSocket server.
+
+The ws library provides both server and client functionality, allowing you to build WebSocket-based applications in Node.js.
+
+Node.js can't run on the google drive.  Must run on a local drive.

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Client-Side Network Communication</title>
+  <script src="client.js"></script>
+</head>
+<body>
+  <h1>WebSocket Client-Side Network Communication</h1>
+  <div>
+    <label for="messageInput">Message:</label>
+    <input type="text" id="messageInput">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+  <div id="responseContainer"></div>
+
+  <script>
+    function sendMessage() {
+      const messageInput = document.getElementById('messageInput');
+      const message = messageInput.value;
+
+      const responseContainer = document.getElementById('responseContainer');
+      responseContainer.innerText = 'Sending message...';
+
+      const socket = new WebSocket('ws://localhost:12345');
+
+socket.addEventListener('open', () => {
+  console.log('Connected to the server.');
+
+  // Send data to the server
+  //const message = 'Hello, server!';
+  socket.send(message);
+});
+
+socket.addEventListener('message', event => {
+  const response = event.data;
+  console.log('Server response:', response);
+
+  // Close the connection
+  socket.close();
+});
+
+socket.addEventListener('close', () => {
+  console.log('Connection closed');
+});
+
+    }
+  </script>
+</body>
+</html>
